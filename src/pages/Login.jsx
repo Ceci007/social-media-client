@@ -27,6 +27,10 @@ const Login = () => {
         </div>
         <span className='md:h-10'></span>
       </div>
+      {/* Right Side: Login Form */}
+      <div className="flex flex-1 items-center justify-center p-6 sm:p-10">
+
+      </div>
     </div>
   )
 }
