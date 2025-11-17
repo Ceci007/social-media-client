@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom"
 import Sidebar from '../components/Sidebar'
 import { Menu, X } from "lucide-react"
 import { dummyUserData } from "../assets/assets"
+import Loading from "../components/Loading"
 
 const Layout = () => {
   const user = dummyUserData;
@@ -13,7 +14,7 @@ const Layout = () => {
       {
         user ?
         <div className="w-full flex h-screen">
-          <Sidebar />
+          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
           <div className="flex-1 bg-slate-50">
             <Outlet />
           </div>
@@ -28,7 +29,7 @@ const Layout = () => {
               onClick={() => setSidebarOpen(true)}
             />
           }
-        </div> : <h1>Loading...</h1>
+        </div> : <Loading />
       }
     </>
   )
