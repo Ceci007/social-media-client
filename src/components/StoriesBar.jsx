@@ -30,7 +30,6 @@ const StoriesBar = () => {
           </div>
         </div>
         {/* Story Cards List */}
-        
         {
           stories.map((story, index) => (
             <div key={index} className={`relative rounded-lg shadow min-w-30 max-w-30 max-h-40 cursor-pointer hover:shadow-lg transition-all duration-200 bg-linear-to-b from-indigo-500 to-purple-600 hover:from-indigo-700 hover:to-purple-900 active:scale-95`}>
