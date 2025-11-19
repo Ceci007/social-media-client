@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowLeft, TextIcon } from 'lucide-react';
+import { ArrowLeft, Sparkle, TextIcon, Upload } from 'lucide-react';
 
 const StoryModal = ({ setShowModal, fetchStories }) => {
   const bgColors = ["#4f46e5", "#7c3aed", "#db2777", "#e11d48", "#ca8a04", "#0d9488"];
@@ -60,11 +60,26 @@ const StoryModal = ({ setShowModal, fetchStories }) => {
               setMedia(null);
               setPreviewUrl(null);
             }} 
-            className={`flex flex-1 items-center justify-center gap-2 p-2 rounded ${mode === "text" ? "bg-white text-black" : "bg-zinc-800"}`}
+            className={`flex flex-1 items-center justify-center gap-2 p-2 rounded cursor-pointer ${mode === "text" ? "bg-white text-black" : "bg-zinc-800"}`}
           >
             <TextIcon size={18} /> Text
           </button>
+          <label className={`flex flex-1 items-center justify-center gap-2 p-2 rounded cursor-pointer ${mode === "media" ? "bg-white text-black" : "bg-zinc-800"}`}>
+            <input 
+              onChange={(e) => {
+                handleMediaUpload(e);
+                setMode("media");
+              }}
+              type="file" 
+              accept="image/*, video/*" 
+              className="hidden" 
+            />
+            <Upload size={18} /> Photo/Video
+          </label>
         </div>
+        <button className="flex items-center justify-center gap-2 text-white py-3 mt-4 w-full rounded bg-linear-to-r from-indigo-500 to-purple-600 hover:from-indigo-700 hover:to-purple-900 active:scale-95 transition cursor-pointer">
+          <Sparkle size={18} /> Create Story
+        </button>
       </div>
     </div>
   )
