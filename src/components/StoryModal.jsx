@@ -42,7 +42,7 @@ const StoryModal = ({ setShowModal, fetchStories }) => {
           {
             mode === "media" && previewUrl && (
               media?.type.startsWith("image") ? (
-                <img src={previewUrl} alt="" className="object-contain max-h-full" />
+                <img src={previewUrl} alt={previewUrl} className="object-contain max-h-full" />
               ) : (
                 <video src={previewUrl} className="object-contain max-h-full" />
               )
