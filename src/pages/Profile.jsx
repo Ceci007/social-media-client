@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { dummyUserData, dummyPostsData } from "../assets/assets"
 import Loading from "../components/Loading"
+import UserProfileInfo from "../components/UserProfileInfo"
 
 const Profile = () => {
   const { profileId } = useParams();
@@ -32,7 +33,7 @@ const Profile = () => {
                 {user.cover_photo && <img src={user.cover_photo} alt={user.cover_photo} className="w-full h-full object-cover" />}
               </div>
               {/* User Info */}
-              
+              <UserProfileInfo user={user} posts={posts} profileId={profileId} setShowEdit={setShowEdit} />
             </div>
           </div>
         </div>
