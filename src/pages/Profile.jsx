@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { dummyUserData, dummyPostsData } from "../assets/assets"
 import Loading from "../components/Loading"
 import UserProfileInfo from "../components/UserProfileInfo"
+import PostCard from "../components/PostCard"
+import moment from "moment"
 
 const Profile = () => {
   const { profileId } = useParams();
@@ -44,6 +46,13 @@ const Profile = () => {
                   </button>
                 ))}
               </div>
+              {/* Posts */}
+              {activeTab === "posts" && (
+                <div className="mt-6 flex flex-col items-center gap-6">
+                  {posts.map((post) => <PostCard key={post._id} post={post} />)}
+                </div>
+              )}
+             
             </div>
           </div>
         </div>
